@@ -142,6 +142,13 @@ webapp-project/
 - Formik for form handling
 
 ### Server Configuration
+
+#### Domain
+- Primary Domain: quantummftools.com
+- Production URL: https://quantummftools.com
+- API Endpoint: https://api.quantummftools.com
+
+#### Network Configuration
 - Network Name: webapp-vpc-prod
 - IP Range: 10.124.32.0/20
 
@@ -149,6 +156,7 @@ webapp-project/
 - Public IP: 164.92.79.175
 - Private IP: 10.124.32.4
 - Hostname: webapp-main-prod
+- Domain: quantummftools.com
 
 #### Database Server
 - Public IP: 144.126.213.183
@@ -188,17 +196,58 @@ webapp-project/
 
    Backend (.env):
    ```
+   # Server Configuration
    PORT=5000
+   NODE_ENV=production
+   
+   # Database
    MONGODB_URI=mongodb://localhost:27017/webapp
+   
+   # Security
    JWT_SECRET=your-secret-key
-   FRONTEND_URL=http://localhost:3000
+   CORS_ORIGIN=https://quantummftools.com
+   
+   # Domain Configuration
+   DOMAIN=quantummftools.com
+   FRONTEND_URL=https://quantummftools.com
+   API_SUBDOMAIN=api.quantummftools.com
+   
+   # File Upload Settings
    UPLOAD_PATH=uploads
    MAX_FILE_SIZE=10485760
+   
+   # SSL Configuration
+   SSL_KEY_PATH=/etc/letsencrypt/live/quantummftools.com/privkey.pem
+   SSL_CERT_PATH=/etc/letsencrypt/live/quantummftools.com/fullchain.pem
    ```
 
    Frontend (.env):
    ```
+   # API Configuration
+   REACT_APP_API_URL=https://api.quantummftools.com
+   
+   # Environment
+   REACT_APP_ENV=production
+   
+   # Domain
+   REACT_APP_DOMAIN=quantummftools.com
+   ```
+
+   For local development, use these settings instead:
+
+   Backend (.env.development):
+   ```
+   PORT=5000
+   NODE_ENV=development
+   MONGODB_URI=mongodb://localhost:27017/webapp
+   JWT_SECRET=dev-secret-key
+   FRONTEND_URL=http://localhost:3000
+   ```
+
+   Frontend (.env.development):
+   ```
    REACT_APP_API_URL=http://localhost:5000/api
+   REACT_APP_ENV=development
    ```
 
 4. Start the application:
