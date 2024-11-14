@@ -1,0 +1,12 @@
+{
+  "name": "quantummftools-portal",
+  "version": "1.0.0",
+  "description": "A comprehensive web application portal for automating daily tasks",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "author": "",
+  "license": "MIT"
+}
